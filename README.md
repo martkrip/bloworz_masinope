@@ -7,3 +7,4 @@ Tehtud Pythonis koos (insert LLM)
 - Ralf
 - Riina
 - Karoliin
+- Sten
