@@ -15,8 +15,7 @@ board = [
 ]
 
 isStanding = True
-solution = []
-currentCoordinates
+playerCoords = board[1][1]
 
 lastRotation = ''
 
@@ -29,12 +28,6 @@ def solveTheLevel():
     
 
     # kutsu uuesti solvethelebel
-
-<<<<<<< HEAD
-def fallDown(x, y):    
-    ##tšekk kui järgmine x,y == 0
-
-
 
 def getStartingCoordinates():
     # saab alustamiskoordinaadid
@@ -54,14 +47,6 @@ def canMoveUp(x, y):
         if board[x-1][y] == 1 and board[x-1][y+1] == 1:   
             board[x][y] == board[x-1][y]
                           
-=======
-def moveUp():
-    if board[x-2][y] == 1 or board[x-2][y] == 3:
-        board[x][y] = 1
-        x -= 2
-        board[x][y] = 2
-        solveTheLevel()
->>>>>>> 3a296225dedfee6af52f8a33ce524c792fdc317d
 
 def canMoveDown(x, y):
     # liigub alla
@@ -86,51 +71,45 @@ def canMoveLeft(x, y):
 def canMoveRight(x, y):
     if isStanding:
         if board[x][y+1] == 1 and board[x][y+2] == 1:
-            board[x][y] = board[x][y-1]
+            board[x][y] = board[x][y+2]
             return True
     else:
         if board[x][y+1] == 1 and board[x-1][y+1] == 1:   
             board[x][y] = board[x][y+1]
 
-def move(x, y, rotation, lastRotation):
-    doubleX = if x+2 == 1 | x -2 == 1
-    doubleY = if y+2 == 1 | x - 2 == 1
-    if not isStanding & doubleX:
-        y +1
-        y-1
-
-    if not isStanding & doubleY:
-        y + 1
-        y - 1
-
-    if rotation == 'LEFT':
+def move(x, y, rotation):
+    if isStanding:
+        
+    if lastRotation == 'LEFT':
         if isStanding:
-            board[x][y] = board[x-1][y]
-            isStanding = False
+            if board[x][y-1] == 1 and board[x][y-2] == 1:
+                playerCoords = board[x][y-1]
+                lastRotation = rotation
+                return True
         else:
-            board[x][y] = board[x-2][y]
-            isStanding = True
+            if board[x][y-1] == 1 and board[x+1][y-1] == 1:   
+                playerCoords = board[x][y-1]
 
-    if rotation == 'RIGHT':
+    if lastRotation == 'RIGHT':
         if isStanding:
-            board[x][y] = board[x+1][y]
+            playerCoords = board[x+1][y]
             isStanding = False
         else:
             board[x][y] = board[x+2][y]
             isStanding = True
 
-    if rotation == 'UP':
+    if lastRotation == 'UP':
         if isStanding:
-            board[x][y] = board[x][y+1]
+            playerCoords = board[x][y+1]
             isStanding = False
         else:
-            board[x][y] = board[x][y+2] 
+            playerCoords = board[x][y+2] 
             isStanding = True
-    if rotation == 'DOWN':
+    if lastRotation == 'DOWN':
         if isStanding:
-            board[x][y] = board[x][y-1]
+            playerCoords= board[x][y-1]
             isStanding = False
         else:
-            board[x][y] = board[x][y-2] 
+            playerCoords = board[x][y-2] 
             isStanding = True
            
