@@ -30,6 +30,7 @@ def solveTheLevel():
 
     # kutsu uuesti solvethelebel
 
+<<<<<<< HEAD
 def fallDown(x, y):    
     ##tšekk kui järgmine x,y == 0
 
@@ -53,6 +54,14 @@ def canMoveUp(x, y):
         if board[x-1][y] == 1 and board[x-1][y+1] == 1:   
             board[x][y] == board[x-1][y]
                           
+=======
+def moveUp():
+    if board[x-2][y] == 1 or board[x-2][y] == 3:
+        board[x][y] = 1
+        x -= 2
+        board[x][y] = 2
+        solveTheLevel()
+>>>>>>> 3a296225dedfee6af52f8a33ce524c792fdc317d
 
 def canMoveDown(x, y):
     # liigub alla
