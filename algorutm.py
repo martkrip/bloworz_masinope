@@ -25,7 +25,11 @@ def solveTheLevel():
     # kutsu uuesti solvethelebel
 
 def moveUp():
-    # liigub ules
+    if board[x-2][y] == 1 or board[x-2][y] == 3:
+        board[x][y] = 1
+        x -= 2
+        board[x][y] = 2
+        solveTheLevel()
 
             
 
